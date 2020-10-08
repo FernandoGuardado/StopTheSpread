@@ -1,1 +1,1 @@
-# contactTrace
+# StopTheSpread
