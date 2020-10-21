@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/StopTheSpread/main.m \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.0.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.0.sdk/usr/include/mach-o/dyld.modulemap \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/StopTheSpread/AppDelegate.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMReactNativeAdapter/UMModuleRegistryAdapter.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/React/React/RCTBridgeModule.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/React/React/RCTDefines.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/React/RCTInspectorDevServerHelper.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/React/RCTPackagerConnection.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMModuleRegistryProvider.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMModuleRegistry.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMInternalModule.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMDefines.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMExportedModule.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMViewManager.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMModuleRegistryDelegate.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMSingletonModule.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/React/React/RCTBridgeDelegate.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/React/React/RCTJavaScriptLoader.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Headers/Public/UMCore/UMAppDelegateWrapper.h
