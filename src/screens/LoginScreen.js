@@ -39,17 +39,17 @@ const LoginScreen = ({ navigation }) => {
     if (response.error) {
       setError(response.error);
     }
-
+user
     setLoading(false);
   };
 
   return (
     <Background>
       <BackButton goBack={() => navigation.navigate("HomeScreen")} />
+      
+      <Logo/>
 
-      <Logo />
-
-      <Header>Welcome back.</Header>
+      <Header>StopTheSpread</Header>
 
       <TextInput
         label="Email"

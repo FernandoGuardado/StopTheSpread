@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/DevSupport/RCTDevMenu.m \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/ios/Pods/Target\ Support\ Files/React/React-prefix.pch \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.0.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap \
+  /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator14.0.sdk/usr/include/mach-o/dyld.modulemap \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/DevSupport/RCTDevMenu.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTBridge+Private.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Modules/RCTDevSettings.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTKeyCommands.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/myhaoho/Desktop/react-native-firebase-login-screen/node_modules/react-native/React/Inspector/RCTInspectorPackagerConnection.h

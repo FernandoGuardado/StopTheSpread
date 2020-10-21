@@ -4,14 +4,15 @@ import Logo from "../components/Logo";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import Paragraph from "../components/Paragraph";
+import { Image, View } from "react-native"
 
 const HomeScreen = ({ navigation }) => (
-  <Background>
-    <Logo />
-    <Header>Firebase Login</Header>
-
+  <Background >
+    <Logo/>
+    
+    <Header>StopTheSpread</Header>
     <Paragraph>
-      This template supports Firebase authorization out of the box.
+      Please register to Stop The Spread! hello
     </Paragraph>
     <Button mode="contained" onPress={() => navigation.navigate("LoginScreen")}>
       Login
