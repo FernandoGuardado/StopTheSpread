@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # React Native Firebase Login Screen
 
 More templates at [ReactNativeMarket.com](http://reactnativemarket.com/) 💖
@@ -8,7 +10,6 @@ This repo is proudly sponsored by
   <img src="https://raw.githubusercontent.com/venits/native-forms/master/assets/sponsor.png" width="350"><br />
   Build forms, surveys and polls for React Native apps.
 </a>
-
 
 ## How to use?
 
@@ -26,7 +27,7 @@ yarn install
 
 ```js
 export const FIREBASE_CONFIG = {
-  apiKey: "xxx-yyy-zzz" // etc.
+  apiKey: "xxx-yyy-zzz", // etc.
   // rest of your firebase config
 };
 ```
@@ -66,3 +67,11 @@ In case of any questions or problems, please contact me at:
 ### Happy Coding 💖
 
 ### [ReactNativeMarket.com](http://reactnativemarket.com/)
+
+=======
+
+# StopTheSpread Mobile App
+
+To view the web app please visit: https://github.com/FernandoGuardado/Stop-the-Spread-Admin
+
+> > > > > > > c71f6d06c1d3011c121cb4923a0fd1f5e44abfa9
