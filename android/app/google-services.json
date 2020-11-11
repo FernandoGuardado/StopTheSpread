@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:427562363633:android:4ade30e27720c8fffc5750",
         "android_client_info": {
-          "package_name": "com.sts"
+          "package_name": "com.stsnew"
         }
       },
       "oauth_client": [
@@ -35,7 +35,7 @@
               "client_id": "427562363633-n653omitgii95dtestjg640p9sdsvfm4.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.sts"
+                "bundle_id": "com.stsnew"
               }
             }
           ]
