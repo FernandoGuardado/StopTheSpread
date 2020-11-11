@@ -7,7 +7,6 @@ const FormButton = ({buttonTitle, ...rest}) =>{
       <TouchableOpacity style={styles.buttonContainer} {...rest}>
           <Text style={styles.buttonText}>{buttonTitle}</Text>
       </TouchableOpacity>
-
     );
 };
 export default FormButton;

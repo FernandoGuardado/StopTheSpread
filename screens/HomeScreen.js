@@ -1,41 +1,79 @@
 import React, {useState, useContext} from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { firebase } from '@react-native-firebase/database';
+
 //custom components
 import FormButton from '../components/FormButton';
 import { AuthContext } from '../navigation/AuthProvider';
-import CovPosButton from '../components/CovPosButton';
-import CovNegButton from '../components/CovNegButton';
-import CovSympButton from '../components/CovSympButton';
+
+// button componentes
+import Report from '../components/Report';
+import ReportNegative from '../components/ReportNegative'
+import ReportPositive from '../components/ReportPositive'
+import ReportSymptoms from '../components/ReportSymptoms'
+
+// bottom sheet libraries
+//    used for animations but not used at the moment
+import Animated from 'react-native-reanimated'; 
+import BottomSheet from 'reanimated-bottom-sheet';
 
 
 const HomeScreen = ({navigation}) =>{
+  const {user, logout, setUserInfectionStatus, getUserInfectionStatus} = useContext(AuthContext);
+  const sheetRef = React.useRef(null);
 
-    const {user, logout, setUserInfectionStatus, getUserInfectionStatus} = useContext(AuthContext);
+  // set up render content for bottom sheet
+  const renderContent = () => (
+      <View
+        style={{
+          backgroundColor: '#DEDEDE',
+          paddingLeft: 50,
+          paddingRight: 50,
+          height: 450,
+          alignItems: "center"
+        }}
+      >
+        {/* bottom sheet content */}
+        <Text style = {styles.grabber} > &or; </Text>
+    
+        <ReportNegative
+          buttonTitle='Negative'
+          onPress={() =>{sheetRef.current.snapTo(0);  return setUserInfectionStatus('N')}} />
+    
+        <ReportSymptoms
+          buttonTitle='Symptoms'
+          onPress={() =>{sheetRef.current.snapTo(0);  return setUserInfectionStatus('M')}} />
+    
+        <ReportPositive
+          buttonTitle='Positive'
+          onPress={() =>{sheetRef.current.snapTo(0); return setUserInfectionStatus('P');}} />
+      </View>
+    );
+
+    // had to move id and infenction status to make room for buttons
     return (
         <View style={styles.container}>
-          <FormButton 
-            buttonTitle='Logout'
-            onPress={() => {return logout()}}
-          />
-          <CovPosButton 
-            buttonTitle='Yes Covid-19'
-            onPress={() =>{ return setUserInfectionStatus('P')}}
-
-          />
-          <CovNegButton 
-            buttonTitle='No Covid-19'
-            onPress={() =>{ return setUserInfectionStatus('N')}}
-          />
-          <CovSympButton 
-            buttonTitle='Symptoms Covid-19'
-            onPress={() =>{ return setUserInfectionStatus('M')}}
-          />
           <View style={styles.bottomView}>
             <Text>{user.uid}</Text>
-            <Text>{getUserInfectionStatus()}</Text>
+            <Text>{'Infection Status: ' + getUserInfectionStatus()}</Text>
           </View>
 
+          <View style={styles.buttons}> 
+            <Report
+              buttonTitle = 'Report'
+              // on press snap to position in snapPoins list 
+              onPress = {() => sheetRef.current.snapTo(1)} />
+
+            <FormButton 
+              buttonTitle='Logout'
+              onPress={() => {return logout()}} />
+            </View>
+
+          {/* initialize bottom sheet */}
+          <BottomSheet
+            ref={sheetRef}
+            snapPoints={[0, 450]}
+            borderRadius={10}
+            renderContent={renderContent} />
         </View>
     );
 };
@@ -77,8 +115,16 @@ const styles = StyleSheet.create({
       backgroundColor: '#EE5407',
       justifyContent: 'center',
       alignItems: 'center',
-      position: 'absolute', //Here is the trick
-      bottom: 0, //Here is the trick
+      position: 'absolute',
+      top: 60
+
     },
+    grabber:{
+      fontSize: 30
+    },
+    buttons:{
+      width: '100%',
+      bottom: -300
+    }
   });
   
