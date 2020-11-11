@@ -8,7 +8,8 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const db = firebase.app().database('https://sts0-76694.firebaseio.com');
-
+    let iStat = '';
+    
     return (
         <AuthContext.Provider
             value={{
@@ -23,11 +24,12 @@ export const AuthProvider = ({children}) => {
                 },
                 register: async (email, password) => {
                     try {
-                        await auth().createUserWithEmailAndPassword(email, password)
+                        await auth().createUserWithEmailAndPassword(email, password,)
                         .then((res) => {
                             db.ref('users/' + res.user.uid).set({
                                 email: email,
                                 password: password,
+                        
                             })
                         })
                     } catch(e){
@@ -40,9 +42,20 @@ export const AuthProvider = ({children}) => {
                     } catch(e){
                         console.log(e);
                     }
+                },
+                setUserInfectionStatus: (props) =>{
+                    pushData = db.ref('users/' + user.uid).update({
+                        infectionStatus: props
+                    })
+                   
+                },
+                getUserInfectionStatus: () =>{
+                    db.ref('users/' + user.uid + '/infectionStatus').on('value', snapshot => {
+                        iStat = snapshot.val();
+                      });
+                    
+                    return iStat;
                 }
-                
-
             }}
         >
             {children}

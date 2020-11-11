@@ -14,6 +14,9 @@ const ResourceScreen = ({navigation}) =>{
                 <WebView
                     source={{ uri: 'https://www.cdc.gov/coronavirus/2019-ncov' }}
                 />
+                <View style={styles.bottomView}>
+                    <Text>{user.uid}</Text>
+                </View>
             </SafeAreaView>
 
         </View>
@@ -56,6 +59,15 @@ const styles = StyleSheet.create({
       color: 'white',
       textAlign: 'center',
       flexWrap: 'wrap'
-    }
+    },
+    bottomView: {
+        width: '100%',
+        height: 50,
+        backgroundColor: '#EE5407',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute', //Here is the trick
+        bottom: 0, //Here is the trick
+      },
   });
   
