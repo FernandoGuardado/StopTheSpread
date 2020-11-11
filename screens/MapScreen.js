@@ -6,9 +6,12 @@ import {
   Text
 } from 'react-native';
 import MapView, { Heatmap, PROVIDER_GOOGLE, Marker, Callout, Polygon } from 'react-native-maps';
+import { AuthContext } from '../navigation/AuthProvider';
 
 export default class HeatMap extends Component {
 
+  static contextType = AuthContext
+ 
   static navigationOptions = {
     title: 'Denver',
   };
@@ -80,7 +83,9 @@ export default class HeatMap extends Component {
     { latitude: 40.0232, longitude: -105.0014, weight: .30}
   ];
   render() {
+    const {user, getUserInfectionStatus} = this.context;
     return (
+      
       <View style={styles.container}>
         <MapView
           provider={PROVIDER_GOOGLE}
@@ -110,6 +115,10 @@ export default class HeatMap extends Component {
           >
           </Heatmap>
         </MapView>
+        <View style={styles.bottomView}>
+          <Text>{user.uid}</Text>
+          <Text>{getUserInfectionStatus()}</Text>
+        </View>
       </View>
     );
   }
@@ -121,5 +130,14 @@ const styles = StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject
-  }
+  },
+  bottomView: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#EE5407',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute', //Here is the trick
+    bottom: 0, //Here is the trick
+  },
 });
