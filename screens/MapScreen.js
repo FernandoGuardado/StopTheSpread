@@ -10,6 +10,8 @@ import { AuthContext } from '../navigation/AuthProvider';
 
 export default class HeatMap extends Component {
 
+  
+
   static contextType = AuthContext
  
   static navigationOptions = {
@@ -17,7 +19,7 @@ export default class HeatMap extends Component {
   };
 
   state = {
-    initialPosition: {
+       initialPosition: {
       latitude: 39.7453,//40
       longitude: -105.0007,//-74
       latitudeDelta: 0.09,
@@ -38,6 +40,7 @@ export default class HeatMap extends Component {
         
     ]
   }
+
 
   points = [
     { latitude: 39.7828, longitude: -105.0065, weight: .45 },
@@ -82,6 +85,7 @@ export default class HeatMap extends Component {
     { latitude: 40.0824, longitude: -105.0024, weight: .40 },
     { latitude: 40.0232, longitude: -105.0014, weight: .30}
   ];
+
   render() {
     const {user, getUserInfectionStatus} = this.context;
     return (
