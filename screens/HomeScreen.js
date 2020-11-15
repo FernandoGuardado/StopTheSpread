@@ -10,6 +10,7 @@ import Report from '../components/Report';
 import ReportNegative from '../components/ReportNegative'
 import ReportPositive from '../components/ReportPositive'
 import ReportSymptoms from '../components/ReportSymptoms'
+import ReportCancel from '../components/ReportCancel'
 
 // bottom sheet libraries
 //    used for animations but not used at the moment
@@ -33,7 +34,7 @@ const HomeScreen = ({navigation}) =>{
         }}
       >
         {/* bottom sheet content */}
-        <Text style = {styles.grabber} > &or; </Text>
+        <Text style = {styles.grabber} > &#10134; </Text>
     
         <ReportNegative
           buttonTitle='Negative'
@@ -46,6 +47,10 @@ const HomeScreen = ({navigation}) =>{
         <ReportPositive
           buttonTitle='Positive'
           onPress={() =>{sheetRef.current.snapTo(0); return setUserInfectionStatus('P');}} />
+
+        <ReportCancel
+                  buttonTitle='cancel'
+                  onPress={() =>{sheetRef.current.snapTo(0);}} />
       </View>
     );
 
@@ -71,7 +76,7 @@ const HomeScreen = ({navigation}) =>{
           {/* initialize bottom sheet */}
           <BottomSheet
             ref={sheetRef}
-            snapPoints={[0, 450]}
+            snapPoints={[0, 470]}
             borderRadius={10}
             renderContent={renderContent} />
         </View>
