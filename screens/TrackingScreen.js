@@ -43,6 +43,10 @@ export default class Tracking extends Component<{}> {
     interv: 5000,
     fInterval: 2000,
     location: {},
+    latitude: 0,
+    longitude: 0,
+    speed: 0,
+    timestamp: 0,
   };
 
   componentWillUnmount() {
@@ -125,7 +129,7 @@ export default class Tracking extends Component<{}> {
     this.setState({ loading: true }, () => {
       Geolocation.getCurrentPosition(
         (position) => {
-          this.setState({ location: position, loading: false });
+          this.setState({ location: position, loading: false, latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
           console.log(position);
         },
         (error) => {
@@ -158,7 +162,7 @@ export default class Tracking extends Component<{}> {
     this.setState({ updatesEnabled: true }, () => {
       this.watchId = Geolocation.watchPosition(
         (position) => {
-          this.setState({ location: position });
+          this.setState({ location: position,  latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
           console.log(position);
         },
         (error) => {
@@ -235,8 +239,8 @@ export default class Tracking extends Component<{}> {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style = {styles.body}>
-      <Button onPress = {this.getLocationUpdates} title= "Get location updates"/>
-      <Button onPress = {this.removeLocationUpdates} title= "Remove location Updates"/>
+      <Button onPress = {this.getLocationUpdates} title= "Start Tracking"/>
+      <Button onPress = {this.removeLocationUpdates} title= "Stop Tracking"/>
 
 
 
@@ -244,16 +248,16 @@ export default class Tracking extends Component<{}> {
 
       <TouchableOpacity onPress = {this.getLocation} >
 					<Text style={styles.welcome}>Find My Coords?</Text>
-					<Text>Latitude: {location?.coords?.latitude || ''}</Text>
-            <Text>Longitude: {location?.coords?.longitude || ''}</Text>
+					<Text>Latitude: {this.state.latitude || ''}</Text>
+            <Text>Longitude: {this.state.longitude || ''}</Text>
             <Text>Heading: {location?.coords?.heading}</Text>
             <Text>Accuracy: {location?.coords?.accuracy}</Text>
             <Text>Altitude: {location?.coords?.altitude}</Text>
-            <Text>Speed: {location?.coords?.speed}</Text>
+            <Text>Speed: {this.state.speed}</Text>
             <Text>
               Timestamp:{' '}
-              {location.timestamp
-                ? new Date(location.timestamp).toLocaleString()
+              {this.state.timestamp
+                ? new Date(this.state.timestamp).toLocaleString()
                 : ''}
             </Text>
 				</TouchableOpacity>
