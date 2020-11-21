@@ -5,7 +5,6 @@ import React, {Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
   StatusBar,
@@ -17,43 +16,56 @@ import {
 
 import {
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 import Geolocation from 'react-native-geolocation-service';
 import { AuthContext } from '../navigation/AuthProvider';
 
 
-export default class Tracking extends Component<{}> {
-
-  watchId = null;
-
+export default class Tracking extends Component {
+  
+  
+  static contextType = AuthContext; //used to call functions from Auth Provider
+  watchId = null; //number
   state = {
-		forceLocation: true,
-    highAccuracy: true,
-    loading: false,
-    showLocationDialog: true,
-    significantChanges: false,
-    updatesEnabled: false,
-    foregroundService: false,
-    timeoute: 15000,
-    maxAge: 10000,
-    dFilter: 0,
-    interv: 5000,
-    fInterval: 2000,
+
+    // variables
+		forceLocation: true,  //forcefully request location
+    highAccuracy: true, //use high accuracy mode for gps
+    loading: false, //tracks if app is waiting for location data
+    significantChanges: false,  //return locations only if device detects significant change (android only)
+    updatesEnabled: false, //tracks whether location updates is turned on or not
+    timeoute: 15000, //Request timeout
+    maxAge: 10000,  //store gps data for this many ms
+    dFilter: 0, //distance filter, don't get gps data if they haven't moved x 
+    interv: 5000, //Interval for active location updates (android only)
+    fInterval: 2000, //Fastest rate to receive location updates, which might 
+                      //be faster than interval in some situations (android only)
     location: {},
+<<<<<<< Updated upstream
     latitude: 0,
     longitude: 0,
     speed: 0,
     timestamp: 0,
+=======
+    /*
+    format of location :{
+      "coords": {"accuracy": number, 
+                "altitude": number, 
+                "heading": number, 
+                "latitude": number, 
+                "longitude": number, 
+                "speed": number}, 
+      "mocked": boolean, 
+      "timestamp": 1605936837000
+    }
+    */ 
+>>>>>>> Stashed changes
   };
 
-  componentWillUnmount() {
-    this.removeLocationUpdates();
-  }
-
   hasLocationPermissionIOS = async () => {
+    // asks for location permission on iOS 
+
     const openSetting = () => {
       Linking.openSettings().catch(() => {
         Alert.alert('Unable to open settings');
@@ -85,6 +97,7 @@ export default class Tracking extends Component<{}> {
 
 
   hasLocationPermission = async () => {
+    //checks if permission has been granted 
     if (Platform.OS === 'ios') {
       const hasPermission = await this.hasLocationPermissionIOS();
       return hasPermission;
@@ -95,20 +108,23 @@ export default class Tracking extends Component<{}> {
     }
 
     const hasPermission = PermissionsAndroid.check(
+      // TODO: this won't run, need to debug
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     )
     {return hasPermission;}
   }
 
    async componentDidMount() {
+     //called at the beginning 
     if (async () => {
       await this.hasLocationPermission;}) {
+        // when the user first opens this screen get the location
       Geolocation.getCurrentPosition(
           (position) => {
             console.log(position);
-            const location = JSON.stringify(position);
-
-			    	this.setState({ location });
+            
+            //saves current location so app can display it on screen
+			    	this.setState({ location: position });
           },
           (error) => {
             // See error code charts below.
@@ -119,7 +135,16 @@ export default class Tracking extends Component<{}> {
     }
   };
 
+  componentWillUnmount() {
+    // called when the app terminates
+    // stops location tracking 
+    this.removeLocationUpdates();
+  }
+
   getLocation = async () => {
+    /* Gets the current location of the user ands sets the state values
+    */
+
     const hasLocationPermission = await this.hasLocationPermission();
 
     if (!hasLocationPermission) {
@@ -129,46 +154,61 @@ export default class Tracking extends Component<{}> {
     this.setState({ loading: true }, () => {
       Geolocation.getCurrentPosition(
         (position) => {
+<<<<<<< Updated upstream
           this.setState({ location: position, loading: false, latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
+=======
+          //sets state variable location
+          this.setState({ location: position, loading: false });
+>>>>>>> Stashed changes
           console.log(position);
+
+          //sends location data to database
+          this.context.setUserLocationInfo(position);
+
         },
         (error) => {
           this.setState({ loading: false });
           console.log(error);
         },
-        {
+        { //arguments
           enableHighAccuracy: this.state.highAccuracy,
           timeout: this.state.timeoute,
           maximumAge: this.state.maxAge,
           distanceFilter: this.state.dFilter,
           forceRequestLocation: this.state.forceLocation,
-          showLocationDialog: this.state.showLocationDialog,
         },
       );
     });
   };
-
   getLocationUpdates = async () => {
+    /*creates async thread that continuously tracks user location
+      until removeLocationUpdates is called
+
+      this is paused when user minimizes the app
+    */
     const hasLocationPermission = await this.hasLocationPermission();
 
     if (!hasLocationPermission) {
-      return;
-    }
-
-    if (Platform.OS === 'android' && this.state.foregroundService) {
-      await this.startForegroundService();
+      return; //do nothing if user denies location permission
     }
 
     this.setState({ updatesEnabled: true }, () => {
       this.watchId = Geolocation.watchPosition(
         (position) => {
+<<<<<<< Updated upstream
           this.setState({ location: position,  latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
+=======
+          this.setState({ location: position });  //saves the gps data to state variable
+>>>>>>> Stashed changes
           console.log(position);
+
+          //sends location data to database
+          this.context.setUserLocationInfo(position);
         },
         (error) => {
           console.log(error);
         },
-        {
+        { //parameters for watchPosition
           enableHighAccuracy: this.state.highAccuracy,
           distanceFilter: this.state.dFilter,
           interval: this.state.interv,
@@ -182,60 +222,24 @@ export default class Tracking extends Component<{}> {
   };
 
   removeLocationUpdates = () => {
+    //stops tracking user location
     if (this.watchId !== null) {
-      this.stopForegroundService();
       Geolocation.clearWatch(this.watchId);
       this.watchId = null;
       this.setState({ updatesEnabled: false });
     }
   };
 
-  startForegroundService = async () => {
-    if (Platform.Version >= 26) {
-      await VIForegroundService.createNotificationChannel({
-        id: 'locationChannel',
-        name: 'Location Tracking Channel',
-        description: 'Tracks location of user',
-        enableVibration: false,
-      });
-    }
-
-    return VIForegroundService.startService({
-      channelId: 'locationChannel',
-      id: 420,
-      title: appConfig.displayName,
-      text: 'Tracking location updates',
-      icon: 'ic_launcher',
-    });
-  };
-
-  stopForegroundService = () => {
-    if (this.state.foregroundService) {
-      VIForegroundService.stopService().catch((err) => err);
-    }
-  };
-
-  setAccuracy = (value) => this.setState({ highAccuracy: value });
-  setSignificantChange = (value) =>
-    this.setState({ significantChanges: value });
-  setLocationDialog = (value) => this.setState({ showLocationDialog: value });
-  setForceLocation = (value) => this.setState({ forceLocation: value });
-  setForegroundService = (value) => this.setState({ foregroundService: value });
-
   render() {
     const {
-      forceLocation,
-      highAccuracy,
-      loading,
       location,
-      showLocationDialog,
-      significantChanges,
-      updatesEnabled,
-      foregroundService,
     } = this.state;
     this.hasLocationPermission();
 
   return (
+    // This section describes elements that the user sees
+    // Comments can't be put between tags
+    
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style = {styles.body}>
@@ -268,44 +272,12 @@ export default class Tracking extends Component<{}> {
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
   body: {
     backgroundColor: Colors.lighter,
     flex: 1,
+    //center everything along x and y 
     justifyContent: "center",
     alignItems: "center"
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
   },
   welcome: {
 		fontSize: 20,
