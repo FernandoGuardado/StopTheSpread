@@ -55,8 +55,6 @@ export const AuthProvider = ({children}) => {
                       });
                     
                     return iStat;
-<<<<<<< Updated upstream
-=======
                 },
                 setUserLocationInfo: (props) => {
                     if(props.coords.speed < 5){
@@ -68,9 +66,21 @@ export const AuthProvider = ({children}) => {
                         })
                     }
                     
->>>>>>> Stashed changes
+                },
+                uploadUserLocation: (props) => {
+                    if(props.coords.speed < 5){
+                        pushData = db.ref('locations/' + props.timestamp + '/').push({
+                            user : user.uid,
+                            lat: props.coords.latitude,
+                            long: props.coords.longitude
+                        })
+                    
+                    }
                 }
-            }}
+
+            }
+        
+        }
         >
             {children}
 
