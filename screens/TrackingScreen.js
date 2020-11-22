@@ -42,12 +42,10 @@ export default class Tracking extends Component {
     fInterval: 2000, //Fastest rate to receive location updates, which might 
                       //be faster than interval in some situations (android only)
     location: {},
-<<<<<<< Updated upstream
     latitude: 0,
     longitude: 0,
     speed: 0,
     timestamp: 0,
-=======
     /*
     format of location :{
       "coords": {"accuracy": number, 
@@ -60,7 +58,6 @@ export default class Tracking extends Component {
       "timestamp": 1605936837000
     }
     */ 
->>>>>>> Stashed changes
   };
 
   hasLocationPermissionIOS = async () => {
@@ -124,7 +121,7 @@ export default class Tracking extends Component {
             console.log(position);
             
             //saves current location so app can display it on screen
-			    	this.setState({ location: position });
+			    	this.setState({ location: position, latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
           },
           (error) => {
             // See error code charts below.
@@ -154,16 +151,11 @@ export default class Tracking extends Component {
     this.setState({ loading: true }, () => {
       Geolocation.getCurrentPosition(
         (position) => {
-<<<<<<< Updated upstream
           this.setState({ location: position, loading: false, latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
-=======
-          //sets state variable location
-          this.setState({ location: position, loading: false });
->>>>>>> Stashed changes
           console.log(position);
 
           //sends location data to database
-          this.context.setUserLocationInfo(position);
+          this.context.uploadUserLocation(position);
 
         },
         (error) => {
@@ -195,15 +187,11 @@ export default class Tracking extends Component {
     this.setState({ updatesEnabled: true }, () => {
       this.watchId = Geolocation.watchPosition(
         (position) => {
-<<<<<<< Updated upstream
           this.setState({ location: position,  latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
-=======
-          this.setState({ location: position });  //saves the gps data to state variable
->>>>>>> Stashed changes
           console.log(position);
 
           //sends location data to database
-          this.context.setUserLocationInfo(position);
+          this.context.uploadUserLocation(position);
         },
         (error) => {
           console.log(error);
