@@ -38,14 +38,15 @@ export default class Tracking extends Component {
     timeoute: 15000, //Request timeout
     maxAge: 10000,  //store gps data for this many ms
     dFilter: 0, //distance filter, don't get gps data if they haven't moved x 
-    interv: 5000, //Interval for active location updates (android only)
-    fInterval: 2000, //Fastest rate to receive location updates, which might 
+    interv: 15000, //Interval for active location updates (android only)
+    fInterval: 10000, //Fastest rate to receive location updates, which might 
                       //be faster than interval in some situations (android only)
     location: {},
     latitude: 0,
     longitude: 0,
     speed: 0,
     timestamp: 0,
+    county: null,
     /*
     format of location :{
       "coords": {"accuracy": number, 
@@ -117,11 +118,12 @@ export default class Tracking extends Component {
       await this.hasLocationPermission;}) {
         // when the user first opens this screen get the location
       Geolocation.getCurrentPosition(
-          (position) => {
+          async(position) => {
             console.log(position);
             
             //saves current location so app can display it on screen
-			    	this.setState({ location: position, latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
+            this.setState({ location: position, latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
+            await this.getCounty();
           },
           (error) => {
             // See error code charts below.
@@ -138,6 +140,23 @@ export default class Tracking extends Component {
     this.removeLocationUpdates();
   }
 
+  getCounty = async () => {
+    // Sets the county variable to what the geocoder api returns. 
+    //This is too slow so the program will execute the next line of code before this finishes.
+    let x;
+    fetch("https://geocoding.geo.census.gov/geocoder/geographies/coordinates?x=" + this.state.longitude + "&y=" + this.state.latitude + "&benchmark=4&vintage=4&format=json")
+    .then((response) => response.json())
+      .then((json) => {
+        x = json.result.geographies.Counties[0].NAME
+        this.setState({county: x})
+        console.log(json.result.geographies.Counties[0].NAME);
+      })
+      .catch((error) => console.error(error))
+      .finally(() => {
+      });
+    return x;
+  }
+
   getLocation = async () => {
     /* Gets the current location of the user ands sets the state values
     */
@@ -150,12 +169,12 @@ export default class Tracking extends Component {
 
     this.setState({ loading: true }, () => {
       Geolocation.getCurrentPosition(
-        (position) => {
+        async (position) => {
           this.setState({ location: position, loading: false, latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
           console.log(position);
-
+          let count = await this.getCounty();
           //sends location data to database
-          this.context.uploadUserLocation(position);
+          this.context.uploadUserLocation(this.state.location, count);
 
         },
         (error) => {
@@ -186,12 +205,13 @@ export default class Tracking extends Component {
 
     this.setState({ updatesEnabled: true }, () => {
       this.watchId = Geolocation.watchPosition(
-        (position) => {
+        async (position) => {
           this.setState({ location: position,  latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
           console.log(position);
+          await this.getCounty();
 
           //sends location data to database
-          this.context.uploadUserLocation(position);
+          this.context.uploadUserLocation(this.state.location, this.state.county);
         },
         (error) => {
           console.log(error);
@@ -252,6 +272,8 @@ export default class Tracking extends Component {
                 ? new Date(this.state.timestamp).toLocaleString()
                 : ''}
             </Text>
+            <Text>County: {this.state.county || ''}</Text>
+
 				</TouchableOpacity>
       </SafeAreaView>
     </>
