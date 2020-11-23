@@ -67,12 +67,12 @@ export const AuthProvider = ({children}) => {
                     }
                     
                 },
-                uploadUserLocation: (props) => {
+                uploadUserLocation: (props, county) => {
                     if(props.coords.speed < 5){ //if user is not traveling by motor vehicle, upload their location data.
-                        pushData = db.ref('locations/' + props.timestamp + '/').push({
+                        pushData = db.ref('locations/' + county + '/' + props.timestamp + '/').push({
                             user : user.uid,
                             lat: props.coords.latitude,
-                            long: props.coords.longitude
+                            long: props.coords.longitude,
                         })
                     
                     }
