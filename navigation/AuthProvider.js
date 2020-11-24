@@ -48,7 +48,18 @@ export const AuthProvider = ({children}) => {
                     pushData = db.ref('users/' + user.uid).update({
                         infectionStatus: props
                     })
-                   
+                   if(props == 'P')
+                   {
+                        var updates = {};
+                        updates[user.uid] = true;
+                       db.ref('testedPositive/').update(updates)
+                   }
+                   else
+                   {
+                        var updates = {};
+                        updates[user.uid] = false;
+                       db.ref('testedPositive/').update(updates)
+                   }
                 },
                 getUserInfectionStatus: () =>{
                     db.ref('users/' + user.uid + '/infectionStatus').on('value', snapshot => {
@@ -59,7 +70,7 @@ export const AuthProvider = ({children}) => {
                 },
                 setUserLocationInfo: (props) => {
                     if(props.coords.speed < 5){
-                        pushData = db.ref('users/' + user.uid + '/locationInfo').update({
+                        pushData = db.ref('users/' + user.uid + '/locationInfo/').update({
                             lat: props.coords.latitude,
                             long: props.coords.longitude,
                             time: props.timestamp,
@@ -75,7 +86,9 @@ export const AuthProvider = ({children}) => {
                             lat: props.coords.latitude,
                             long: props.coords.longitude,
                         })
-                    
+                        var updates = {};
+                        updates[county] = props.timestamp;
+                        addData = db.ref('users/' + user.uid + '/locationInfo/locations').update(updates);
                     }
                 }
 

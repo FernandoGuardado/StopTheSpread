@@ -172,9 +172,10 @@ export default class Tracking extends Component {
         async (position) => {
           this.setState({ location: position, loading: false, latitude: position.coords.latitude,  longitude: position.coords.longitude, speed: position.coords.speed, timestamp: position.timestamp });
           console.log(position);
-          let count = await this.getCounty();
+          await this.getCounty();
           //sends location data to database
-          this.context.uploadUserLocation(this.state.location, count);
+          this.context.uploadUserLocation(this.state.location, this.state.county);
+          this.context.setUserLocationInfo(this.state.location);
 
         },
         (error) => {
@@ -212,6 +213,8 @@ export default class Tracking extends Component {
 
           //sends location data to database
           this.context.uploadUserLocation(this.state.location, this.state.county);
+          this.context.setUserLocationInfo(this.state.location);
+
         },
         (error) => {
           console.log(error);
