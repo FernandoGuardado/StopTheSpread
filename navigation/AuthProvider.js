@@ -29,6 +29,7 @@ export const AuthProvider = ({children}) => {
                             db.ref('users/' + res.user.uid).set({
                                 email: email,
                                 password: password,
+                                infectionStatus: 'N',
                         
                             })
                         })
