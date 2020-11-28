@@ -222,6 +222,8 @@ export default class Tracking extends Component {
         { //parameters for watchPosition
           enableHighAccuracy: this.state.highAccuracy,
           distanceFilter: this.state.dFilter,
+          timeout: this.state.timeoute,
+          maximumAge: this.state.maxAge,
           interval: this.state.interv,
           fastestInterval: this.state.fInterval,
           forceRequestLocation: this.state.forceLocation,
