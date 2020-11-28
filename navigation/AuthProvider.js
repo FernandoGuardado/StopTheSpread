@@ -56,9 +56,7 @@ export const AuthProvider = ({children}) => {
                    }
                    else
                    {
-                        var updates = {};
-                        updates[user.uid] = false;
-                       db.ref('testedPositive/').update(updates)
+                        db.ref("testedPositive").child(user.uid).remove()
                    }
                 },
                 getUserInfectionStatus: () =>{
