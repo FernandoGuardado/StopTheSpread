@@ -9,6 +9,8 @@ export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const db = firebase.app().database('https://sts0-76694.firebaseio.com');
     let iStat = '';
+    let iCont = '';
+    let keys = '';
     
     return (
         <AuthContext.Provider
@@ -66,6 +68,20 @@ export const AuthProvider = ({children}) => {
                     
                     return iStat;
                 },
+                getUserContacts: () => {
+                    db.ref('users/' + user.uid + '/positiveContacts').on('value', snapshot => {
+                        Object.size = function(obj) {
+                            var size = 0, key;
+                            for (key in obj) {
+                                if (obj.hasOwnProperty(key)) size++;
+                            }
+                            return size;
+                        };
+                        iCont = snapshot.val();
+                      });
+
+                      return Object.size(iCont);
+                },
                 setUserLocationInfo: (props) => {
                     if(props.coords.speed < 5){
                         pushData = db.ref('users/' + user.uid + '/locationInfo/').update({
@@ -89,7 +105,6 @@ export const AuthProvider = ({children}) => {
                         addData = db.ref('users/' + user.uid + '/locationInfo/locations').update(updates);
                     }
                 }
-
             }
         
         }

@@ -11,6 +11,7 @@ import ReportNegative from '../components/ReportNegative'
 import ReportPositive from '../components/ReportPositive'
 import ReportSymptoms from '../components/ReportSymptoms'
 import ReportCancel from '../components/ReportCancel'
+import GetContacts from '../components/GetContacts'
 
 // bottom sheet libraries
 //    used for animations but not used at the moment
@@ -19,7 +20,7 @@ import BottomSheet from 'reanimated-bottom-sheet';
 
 
 const HomeScreen = ({navigation}) =>{
-  const {user, logout, setUserInfectionStatus, getUserInfectionStatus} = useContext(AuthContext);
+  const {user, logout, setUserInfectionStatus, getUserInfectionStatus, getUserContacts} = useContext(AuthContext);
   const sheetRef = React.useRef(null);
 
   // set up render content for bottom sheet
@@ -61,8 +62,15 @@ const HomeScreen = ({navigation}) =>{
             <Text>{user.uid}</Text>
             <Text>{'Infection Status: ' + getUserInfectionStatus()}</Text>
           </View>
+          <View style={styles.positiveContacts}>
+            <Text>{'Positive Contacts: ' + getUserContacts()}</Text>
+          </View>
 
           <View style={styles.buttons}> 
+            {/* <GetContacts
+            buttonTitle = 'Get Positive Contacts'
+            onPress = {() => {}}/> */}
+
             <Report
               buttonTitle = 'Report'
               // on press snap to position in snapPoins list 
@@ -90,7 +98,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      padding: 20,
+      paddingTop: 20,
     },
     logo: {
       height: 150,
@@ -129,7 +137,15 @@ const styles = StyleSheet.create({
     },
     buttons:{
       width: '100%',
-      bottom: -300
+      bottom: -250
+    },
+    positiveContacts:{
+      backgroundColor : 'yellow',
+      top: -140,
+      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 50
     }
   });
   
