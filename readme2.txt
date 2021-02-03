@@ -18,8 +18,8 @@ MacOS
 Navigate to the root folder
 cd to ios folder
 run pod install (must have CocoaPods installed)
-In the root folder, run npx react-native run-ios for iOS simulator or npx react-native run-android for Android simulator
-
+In the root folder, run npx react-native run-ios --simulator="iPhone 12 Pro Max" for iOS simulator or npx react-native run-android for Android simulator
+**To run on different ios device, change value of --simulator flag
 
 no bundle error? => https://www.youtube.com/watch?v=eCs2GsWNkoo&ab_channel=ChanYouvita
 Using npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios
