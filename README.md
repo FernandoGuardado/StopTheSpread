@@ -40,15 +40,8 @@ delete build folder // this might not be needed, try next step before doing this
 cd ..
 yarn ios // npm run ios
 ```
-6. Enable GPS tracking  
-
-  The permissions alert is not popping up so you have to exit the app and go to settings on your OS, find the app and give it location permission. 
-  # This app has only been set up for android so far. 
-  Visit here:https://github.com/Agontuk/react-native-geolocation-service and follow all the instructions on setup for iOS. 
 
 # StopTheSpread Mobile App
 
-To view the web app please visit: https://github.com/FernandoGuardado/Stop-the-Spread-Admin
-
-> > > > > > > c71f6d06c1d3011c121cb4923a0fd1f5e44abfa9
+To view the server app please visit: https://github.com/FernandoGuardado/Stop-the-Spread-Admin
 
