@@ -27,12 +27,12 @@ const AppStack = () => {
       }}
     >
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Map"
+        component={MapScreen}
         options={{
-          tabBarLabel: "Home",
+          tabBarLabel: "Map",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home" color={color} size={24} />
+            <Ionicons name="map" color={color} size={24} />
           ),
         }}
       />
@@ -47,12 +47,12 @@ const AppStack = () => {
         }}
       />
       <Tab.Screen
-        name="Map"
-        component={MapScreen}
+        name="Home"
+        component={HomeScreen}
         options={{
-          tabBarLabel: "Map",
+          tabBarLabel: "Resources",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="map" color={color} size={24} />
+            <Ionicons name="information-circle" color={color} size={24} />
           ),
         }}
       />

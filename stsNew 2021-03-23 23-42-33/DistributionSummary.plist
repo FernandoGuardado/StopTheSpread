@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>stsNew.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>bitcode</key>
+			<true/>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>2F422C6C4463E11EB49227A7215326F9A1A0BE2A</string>
+				<key>dateExpires</key>
+				<string>3/23/22</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>V9ZM5C99GU.com.stsNew.StopTheSpread</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>V9ZM5C99GU</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>V9ZM5C99GU.com.stsNew.StopTheSpread</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>stsNew.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>be113ac3-272d-4339-9f29-b97ee8425e4b</string>
+				<key>name</key>
+				<string>iOS Team Store Provisioning Profile: com.stsNew.StopTheSpread</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>V9ZM5C99GU</string>
+				<key>name</key>
+				<string>Debra Parcheta</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

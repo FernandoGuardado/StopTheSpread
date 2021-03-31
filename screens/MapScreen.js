@@ -28,8 +28,7 @@ export default class HeatMap extends Component {
   loop = () => {
     if (this.state.lock) {
       return; //don't run this function twice
-    }
-    else{
+    } else {
       this.state.lock = true;
     }
     if (this.context.isEnabled && !this.state.updatesEnabled) {
@@ -39,7 +38,7 @@ export default class HeatMap extends Component {
       console.log("remove location updates");
       this.removeLocationUpdates();
     }
-    this.setState({lock: false}); //unlock 
+    this.setState({ lock: false }); //unlock
   };
 
   mainLoop = async () => {
@@ -78,8 +77,6 @@ export default class HeatMap extends Component {
     return false;
   };
 
-  
-
   hasLocationPermission = async () => {
     //checks if permission has been granted
     if (Platform.OS === "ios") {
@@ -92,7 +89,7 @@ export default class HeatMap extends Component {
     }
     const hasPermissionAndroid = await PermissionsAndroid.request(
       // TODO: this won't run, need to debug
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION, 
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       {
         title: "Location Tracking Permission",
         message:
@@ -100,23 +97,22 @@ export default class HeatMap extends Component {
           "to know if you've come into contact with anyone infected. ",
         buttonNeutral: "Ask Me Later",
         buttonNegative: "Cancel",
-        buttonPositive: "OK"
+        buttonPositive: "OK",
       }
     );
-    { if (hasPermissionAndroid === PermissionsAndroid.RESULTS.GRANTED) {
-      return true;
-    } 
-    else {
-      console.log("Permission denied")
-      return false;
-      }//else
-    } 
-    
+    {
+      if (hasPermissionAndroid === PermissionsAndroid.RESULTS.GRANTED) {
+        return true;
+      } else {
+        console.log("Permission denied");
+        return false;
+      } //else
+    }
   };
 
   async componentDidMount() {
     //called at the beginning
-      this.mainLoop();
+    this.mainLoop();
   }
 
   componentWillUnmount() {

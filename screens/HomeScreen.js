@@ -1,5 +1,9 @@
 import React, { useState, useContext, useCallback, useEffect } from "react";
 import { View, Text, StyleSheet, SafeAreaView, Switch } from "react-native";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
 //custom components
 import FormButton from "../components/FormButton";
@@ -98,21 +102,19 @@ const HomeScreen = ({ navigation }) => {
   );
   return (
     <View style={styles.container} backgroundColor={"white"}>
-      <View style={styles.webView}>
-        <SafeAreaView style={styles.webView2}>
-          <WebView
-            source={{ uri: "https://www.cdc.gov/coronavirus/2019-ncov" }}
-          />
-        </SafeAreaView>
-      </View>
+      <SafeAreaView style={styles.webView2}>
+        <WebView
+          source={{ uri: "https://www.cdc.gov/coronavirus/2019-ncov" }}
+        />
+      </SafeAreaView>
 
       <View style={styles.settingsButton}>
         <SettingsButton
           buttonTitle="Settings"
           onPress={() => {
-            if(!firstRender){
+            if (!firstRender) {
               setFirstRender(true);
-              return
+              return;
             }
             try {
               this._panel.show();
@@ -198,16 +200,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 15,
   },
-  webView: {
-    width: 100,
-    flex: 1,
-  },
   webView2: {
     top: 160,
-    width: 100,
-    flex: 9,
-    width: 440,
-    margin: -166,
+    width: wp("100%"),
+    flex: 1,
+    margin: -160,
+    resizeMode: "contain",
   },
   toggleLocationView: {
     marginLeft: "-80%",
@@ -218,10 +216,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 25,
     position: "absolute",
-    marginLeft: '45%'
+    marginLeft: "45%",
   },
   toggleLocationSwitch: {
-    marginLeft: '80%'
+    marginLeft: "80%",
   },
   settingsButton: {
     paddingBottom: 20,
