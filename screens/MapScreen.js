@@ -6,6 +6,8 @@ import {
   Text,
   PermissionsAndroid,
   Button,
+  Image,
+  SafeAreaView,
 } from "react-native";
 import MapView, {
   Heatmap,
@@ -14,11 +16,17 @@ import MapView, {
   Callout,
   Polygon,
 } from "react-native-maps";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
+
 import Geolocation from "react-native-geolocation-service";
 import { AuthContext } from "../navigation/AuthProvider";
 import auth from "@react-native-firebase/auth";
 import { firebase } from "@react-native-firebase/database";
 import ProgressButton from "../components/ProgressButton";
+import Legend from "../components/Legend";
 const db = firebase.app().database("https://sts0-76694.firebaseio.com");
 
 export default class HeatMap extends Component {
@@ -542,9 +550,11 @@ export default class HeatMap extends Component {
             }}
           ></Heatmap>
         </MapView>
-        {/* <View style={styles.bottomView}>
-          <ProgressButton onPress={this.getData} />
-        </View> */}
+        
+          <View style={styles.bottomView}>
+            <Legend></Legend>
+          </View>
+        
       </View>
     );
   }
@@ -559,11 +569,10 @@ const styles = StyleSheet.create({
   },
   bottomView: {
     width: "100%",
-    height: 50,
-    //backgroundColor: '#a6e4d0',
+    height: hp("3.1%"),
     justifyContent: "center",
     alignItems: "center",
     position: "absolute", //Here is the trick
-    bottom: 6.1, //Here is the trick
+    bottom: 1, //Here is the trick
   },
 });
