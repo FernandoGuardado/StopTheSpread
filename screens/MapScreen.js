@@ -152,7 +152,9 @@ export default class HeatMap extends Component {
         this.setState({ county: x });
         console.log(json.result.geographies.Counties[0].NAME);
       })
-      .catch((error) => console.error(error))
+      .catch((error) => {console.error(error);
+        x==undefined ? null : x;
+      })
       .finally(() => {});
     return x;
   };
