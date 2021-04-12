@@ -51,7 +51,7 @@ export default class HeatMap extends Component {
   };
 
   mainLoop = async () => {
-    mloop = setInterval(this.loop, 5000);
+    mloop = setInterval(this.loop, 15000);
   };
 
   hasLocationPermissionIOS = async () => { q
