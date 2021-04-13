@@ -38,18 +38,10 @@ const HomeScreen = ({ navigation }) => {
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
 
-  // set up to hide settings button
-  // const [shouldShow, setShouldShow] = useState(true);
-
-  // set up to get state of switch
-  //const [isEnabled, setIsEnabled] = useState(false);
-  //const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
-
   const clickHandler = (s) => {
     setCount(s);
   };
 
-  const [firstRender, setFirstRender] = useState(false);
   let re = false;
   // //same as component did mount
   // useEffect(() => {
@@ -102,73 +94,31 @@ const HomeScreen = ({ navigation }) => {
   );
   return (
     <View style={styles.container} backgroundColor={"white"}>
-      <SafeAreaView style={styles.webView2}>
-        <WebView
-          source={{ uri: "https://www.cdc.gov/coronavirus/2019-ncov" }}
+      <View style={styles.toggleLocationView}>
+        <Text style={styles.toggleLocationText}>Location Tracking</Text>
+        <Switch
+          style={styles.toggleLocationSwitch}
+          trackColor={{ false: "#767577", true: "#a6e4d0" }}
+          thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+          onValueChange={toggleSwitch}
+          value={isEnabled}
         />
-      </SafeAreaView>
+      </View>
 
-      {/* <View style={styles.settingsButton}>
-        <SettingsButton
-          buttonTitle="Settings"
+      <View style={styles.buttons}>
+        <Report
+          buttonTitle="Report"
+          // on press snap to position in snapPoins list
+          onPress={() => sheetRef.current.snapTo(1)}
+        />
+
+        <FormButton
+          buttonTitle="Logout"
           onPress={() => {
-            if (!firstRender) {
-              setFirstRender(true);
-              return;
-            }
-            try {
-              this._panel.show();
-            } catch (e) {
-              console.log(e);
-            }
-
-            // setShouldShow(!shouldShow);
+            return logout();
           }}
         />
-      </View> */}
-
-      {firstRender && (
-        <SlidingUpPanel
-          ref={(c) => (this._panel = c)}
-          allowDragging={true}
-          backdropStyle={styles.backdropStyle}
-          friction={0}
-          onBottomReached={() => {
-            // setShouldShow(!shouldShow);
-            sheetRef.current.snapTo(0);
-          }}
-        >
-          <View
-            style={styles.container}
-            onStartShouldSetResponder={() => this._panel.hide()}
-          >
-            <View style={styles.toggleLocationView}>
-              <Text style={styles.toggleLocationText}>Location Tracking</Text>
-              <Switch
-                style={styles.toggleLocationSwitch}
-                trackColor={{ false: "#767577", true: "#a6e4d0" }}
-                thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-              />
-            </View>
-            <View style={styles.buttons}>
-              <Report
-                buttonTitle="Report"
-                // on press snap to position in snapPoins list
-                onPress={() => sheetRef.current.snapTo(1)}
-              />
-
-              <FormButton
-                buttonTitle="Logout"
-                onPress={() => {
-                  return logout();
-                }}
-              />
-            </View>
-          </View>
-        </SlidingUpPanel>
-      )}
+      </View>
 
       <BottomSheet
         ref={sheetRef}
@@ -209,10 +159,10 @@ const styles = StyleSheet.create({
   },
   toggleLocationView: {
     marginLeft: "-80%",
-    bottom: 250,
+    bottom: "35%",
   },
   toggleLocationText: {
-    color: "white",
+    color: "black",
     fontWeight: "bold",
     fontSize: 25,
     position: "absolute",

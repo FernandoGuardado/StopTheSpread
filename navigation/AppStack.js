@@ -6,6 +6,7 @@ import MapScreen from "../screens/MapScreen";
 import ResourceScreen from "../screens/ResourceScreen";
 import TrackingScreen from "../screens/TrackingScreen";
 import NotificationScreen from "../screens/NotificationScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Stack = createStackNavigator();
@@ -43,6 +44,16 @@ const AppStack = () => {
           tabBarLabel: "Contacts",
           tabBarIcon: ({ color }) => (
             <Ionicons name="notifications" color={color} size={24} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          tabBarLabel: "Settings",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="settings" color={color} size={24} />
           ),
         }}
       />
