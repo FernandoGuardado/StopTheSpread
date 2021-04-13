@@ -12,19 +12,20 @@ const ReportSymptoms = ({buttonTitle, ...rest}) =>{
 export default ReportSymptoms;
 
 const styles = StyleSheet.create({
-    buttonContainer: {
-      marginTop: 10,
-      width: '100%',
-      height: windowHeight / 15,
-      backgroundColor: 'grey',
-      padding: 10,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 3,
-    },
-    buttonText: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      color: '#ffffff'
-    },
+  buttonContainer: {
+    margin: 10,
+    width: '100%',
+    height: windowHeight / 15,
+    backgroundColor: 'grey',
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 30,
+  },
+  buttonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    fontFamily: 'Helvetica Neue'
+  },
   });

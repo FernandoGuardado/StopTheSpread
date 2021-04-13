@@ -14,6 +14,7 @@ import Report from "../components/Report";
 import ReportNegative from "../components/ReportNegative";
 import ReportPositive from "../components/ReportPositive";
 import ReportSymptoms from "../components/ReportSymptoms";
+import ReportCancel from "../components/ReportCancel";
 
 // bottom sheet libraries
 //    used for animations but not used at the moment
@@ -87,6 +88,12 @@ const HomeScreen = ({ navigation }) => {
           return setUserInfectionStatus("P");
         }}
       />
+
+        <ReportCancel
+            buttonTitle="Cancel"
+            onPress={()=> sheetRef.current.snapTo(0)}
+            />
+
       <Text style={styles.reportFooter}>
         Reporting is not necesary but does help the contact tracing accuracy
       </Text>
@@ -122,7 +129,7 @@ const HomeScreen = ({ navigation }) => {
 
       <BottomSheet
         ref={sheetRef}
-        snapPoints={[0, 500]}
+        snapPoints={[0, 560]}
         borderRadius={30}
         renderContent={renderContent}
       />
