@@ -1354,8 +1354,12 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable amu_bubble_mask
 drawable amu_bubble_shadow
+drawable assets_contacts
 drawable assets_covid1
-drawable assets_onboardingimg1
+drawable assets_heatmap
+drawable assets_legend
+drawable assets_locationtracking
+drawable assets_report
 drawable assets_stslogo
 drawable avd_hide_password
 drawable avd_show_password
