@@ -29,6 +29,15 @@ const NotificationScreen = ({}) => {
     return contactLocations;
   };
 
+  emptyComponent = () =>{
+    return(
+      <View style={{flex: 1}}>
+        <Text style={styles.noContacts}>No Positive Contacts! &#128526;</Text>
+        <Text style={styles.noContactsSmall}>Press update to refresh</Text>
+      </View>
+    )
+  }
+
   function timeConverter(UNIX_timestamp) {
     var a = new Date(UNIX_timestamp);
     var months = [
@@ -78,7 +87,7 @@ const NotificationScreen = ({}) => {
     reRender();
   }
   
-  return (
+  return ( 
     <View style={styles.container} backgroundColor={"white"}>
       <View>
         <View style={styles.header}>
@@ -93,6 +102,7 @@ const NotificationScreen = ({}) => {
                 <Text style={styles.listHour}>{timeConverter(Number(item))[0] + ":" + timeConverter(Number(item))[1] + timeConverter(Number(item))[2]}</Text>
             </View>
           )}
+          ListEmptyComponent = {this.emptyComponent}
         />
       </View>
       <View style={styles.updateButton}>
@@ -159,5 +169,21 @@ const styles = StyleSheet.create({
   },
   itemView:{
     paddingBottom: 5,
+  },
+  noContacts:{
+    color: 'grey',
+    fontSize: 24,
+    fontFamily: "Helvetica Neue",
+    fontWeight: '500',
+    textAlign: 'center',
+    paddingTop: '75%'
+  },
+  noContactsSmall:{
+    color: 'grey',
+    fontSize: 12,
+    fontFamily: "Helvetica Neue",
+    fontWeight: '500',
+    textAlign: 'center',
+    paddingTop: 1
   }
 });
