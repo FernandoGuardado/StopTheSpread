@@ -30,7 +30,7 @@ const SignUpScreen = ({ navigation }) => {
       />
 
       <FormInput
-        placeholderText="Password"
+        placeholderText="Password (6+ characters)"
         secureTextEntry={true}
         labelValue={password}
         onChangeText={(userPassword) => {

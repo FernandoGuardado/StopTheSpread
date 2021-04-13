@@ -10,7 +10,6 @@ const LoginScreen = ({navigation}) =>{
     //states for email and password
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-
     //hooks context for linkign button to FB
     const {login} = useContext(AuthContext);
 
