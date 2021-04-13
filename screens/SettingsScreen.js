@@ -57,7 +57,7 @@ const HomeScreen = ({ navigation }) => {
         paddingLeft: 50,
         paddingRight: 50,
         paddingTop: 20,
-        height: 560,
+        height: 450,
         alignItems: "center",
       }}
     >
