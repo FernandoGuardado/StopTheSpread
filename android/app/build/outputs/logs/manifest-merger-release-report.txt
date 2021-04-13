@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
-INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
-INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
-INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
 MERGED from [:react-native-community_masked-view] C:\Users\Starfall\Documents\GitHub\StopTheSpread\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-firebase_auth] C:\Users\Starfall\Documents\GitHub\StopTheSpread\node_modules\@react-native-firebase\auth\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-15:12
 MERGED from [:react-native-firebase_database] C:\Users\Starfall\Documents\GitHub\StopTheSpread\node_modules\@react-native-firebase\database\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-15:12
@@ -90,20 +90,20 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\Starfall\.gradle\caches\transf
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Starfall\.gradle\caches\transforms-2\files-2.1\5558d86074e09ad348491736f8e5bbf8\jetified-android-maps-utils-0.5\AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\Starfall\.gradle\caches\transforms-2\files-2.1\11e28eb13c646d7a0b12ac292c0a6ea7\jetified-fbcore-2.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:annotation:0.8.2] C:\Users\Starfall\.gradle\caches\transforms-2\files-2.1\5de0d5f84855d9a573b16c3fde3529e8\annotation-0.8.2\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
-INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
-INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
+INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
 	package
 		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:2:3-23
 		INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
 		INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-36:12
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:1-35:12
 		INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:1:11-69
@@ -142,7 +142,7 @@ ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main
 	android:name
 		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:8:5-34:19
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:8:5-33:19
 MERGED from [:react-native-webview] C:\Users\Starfall\Documents\GitHub\StopTheSpread\node_modules\react-native-webview\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-21:19
 MERGED from [:react-native-webview] C:\Users\Starfall\Documents\GitHub\StopTheSpread\node_modules\react-native-webview\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-21:19
 MERGED from [com.facebook.react:react-native:0.63.3] C:\Users\Starfall\.gradle\caches\transforms-2\files-2.1\9d603025d675b06645a122d51230afc5\jetified-react-native-0.63.3\AndroidManifest.xml:11:5-20
@@ -218,47 +218,45 @@ MERGED from [com.facebook.soloader:annotation:0.8.2] C:\Users\Starfall\.gradle\c
 	android:name
 		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:9:7-38
 activity#com.stsnew.MainActivity
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:15:7-26:18
-	android:screenOrientation
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:18:2-38
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:15:7-25:18
 	android:label
 		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:17:9-41
 	android:launchMode
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:20:9-40
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:19:9-40
 	android:windowSoftInputMode
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:21:9-51
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:20:9-51
 	android:configChanges
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:19:9-86
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:18:9-86
 	android:name
 		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:16:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:22:9-25:25
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:21:9-24:25
 action#android.intent.action.MAIN
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:23:13-65
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:22:13-65
 	android:name
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:23:21-62
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:22:21-62
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:24:13-73
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:23:13-73
 	android:name
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:24:23-70
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:23:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:27:7-84
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:26:7-84
 	android:name
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:27:17-81
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:26:17-81
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:28:2-30:64
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:27:2-29:64
 	android:value
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:30:7-62
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:29:7-62
 	android:name
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:29:7-52
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:28:7-52
 uses-library#org.apache.http.legacy
-ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:33:4-82
+ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:32:4-82
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Starfall\.gradle\caches\transforms-2\files-2.1\78f0a0a09f1bb14a3a2d04220894e2dc\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\Starfall\.gradle\caches\transforms-2\files-2.1\78f0a0a09f1bb14a3a2d04220894e2dc\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
 	android:required
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:33:56-80
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:32:56-80
 	android:name
-		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:33:18-55
+		ADDED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml:32:18-55
 uses-sdk
 INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Starfall\Documents\GitHub\StopTheSpread\android\app\src\main\AndroidManifest.xml

@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7333e57a-a9fd-48c5-af70-282e007f2ef4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/6.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/6.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/6.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/6.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/LoginScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/SignUpScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/SignUpScreen.js" afterDir="false" />
-    </list>
+    <list default="true" id="7333e57a-a9fd-48c5-af70-282e007f2ef4" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,10 +37,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="680" y="140" width="1200" height="800" key="AVDManager" timestamp="1618344014478">
+    <state x="680" y="140" width="1200" height="800" key="AVDManager" timestamp="1618342164577">
       <screen x="0" y="0" width="2560" height="1080" />
     </state>
-    <state x="680" y="140" width="1200" height="800" key="AVDManager/0.0.2560.1080@0.0.2560.1080" timestamp="1618344014478" />
+    <state x="680" y="140" width="1200" height="800" key="AVDManager/0.0.2560.1080@0.0.2560.1080" timestamp="1618342164577" />
     <state x="760" y="114" key="SettingsEditor" timestamp="1615875712352">
       <screen x="0" y="0" width="2560" height="1080" />
     </state>
