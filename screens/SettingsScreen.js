@@ -114,7 +114,7 @@ const HomeScreen = ({ navigation }) => {
 
       <View style={styles.buttons}>
         <Report
-          buttonTitle="Report"
+          buttonTitle="Report Covid Status"
           // on press snap to position in snapPoins list
           onPress={() => sheetRef.current.snapTo(1)}
         />
