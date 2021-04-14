@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 5,
     fontSize: 25,
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
   },
   headerText: {
     fontSize: 25,
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     width: "100%",
     height: "100%",
-    backgroundColor: "white",
+    // backgroundColor: "white",
   },
   listItems: {
     paddingTop: 10,
