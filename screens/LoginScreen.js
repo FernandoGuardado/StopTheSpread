@@ -10,14 +10,13 @@ const LoginScreen = ({navigation}) =>{
     //states for email and password
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-
     //hooks context for linkign button to FB
     const {login} = useContext(AuthContext);
 
     return (
         <View style={styles.container}>
             <Image
-                source={require('../assets/cov2.png')} 
+                source={require('../assets/stsLogo.png')} 
                 style={styles.logo}
             />
             <Text style={styles.text}>Login</Text>
@@ -43,9 +42,9 @@ const LoginScreen = ({navigation}) =>{
                 onPress={() => { return login(email, password)}}
             />
             
-            <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
+            {/* <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
                 <Text style={styles.navButtonText}>Forgot Password?</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <TouchableOpacity style={styles.forgotButton} onPress={() => { return navigation.navigate('SignUp')}}>
                 <Text style={styles.navButtonText}>Don't have an account? Create here</Text>
@@ -59,25 +58,27 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#f9fafd',
+      // backgroundColor: '#a6e4d0',
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      padding: 20,
+      padding: 20
     },
     logo: {
-      height: 150,
-      width: 150,
+      height: 250,
+      width: 250,
       resizeMode: 'cover',
+      top: -40
     },
     text: {
       fontSize: 28,
-      marginBottom: 10,
+      marginBottom: -40,
       color: '#051d5f',
-      marginVertical: 35
+      // marginVertical: 35,
+      top: -60
     },
     navButton: {
-      marginTop: 15,
+      marginTop: 15
     },
     forgotButton: {
       marginVertical: 35,

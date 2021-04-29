@@ -1,18 +1,18 @@
 {
   "name": "react-native-google-maps",
-  "version": "0.27.1",
+  "version": "0.28.0",
   "summary": "React Native Mapview component for iOS + Android",
   "authors": {
     "intelligibabble": "leland.m.richardson@gmail.com"
   },
-  "homepage": "https://github.com/react-native-community/react-native-maps#readme",
+  "homepage": "https://github.com/react-native-maps/react-native-maps#readme",
   "license": "MIT",
   "platforms": {
     "ios": "8.0"
   },
   "source": {
-    "git": "https://github.com/react-native-community/react-native-maps.git",
-    "tag": "v0.27.1"
+    "git": "https://github.com/react-native-maps/react-native-maps.git",
+    "tag": "v0.28.0"
   },
   "source_files": "lib/ios/AirGoogleMaps/**/*.{h,m}",
   "compiler_flags": [
@@ -21,7 +21,7 @@
     "-fno-modules"
   ],
   "dependencies": {
-    "React": [
+    "React-Core": [
 
     ],
     "GoogleMaps": [
