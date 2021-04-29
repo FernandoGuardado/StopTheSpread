@@ -14,18 +14,13 @@ export default Report;
 const styles = StyleSheet.create({
     buttonContainer: {
       marginTop: 10,
-      marginBottom: 5, 
       width: '100%',
       height: windowHeight / 15,
-      backgroundColor: '#FF6961',
+      backgroundColor: 'red',
       padding: 10,
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 3,
-      borderTopLeftRadius: 30,
-      borderTopRightRadius: 30,
-      borderBottomLeftRadius: 30,
-      borderBottomRightRadius: 30
     },
     buttonText: {
       fontSize: 18,

@@ -1,237 +1,151 @@
-import React, { useState, useContext, useCallback, useEffect } from "react";
-import { View, Text, StyleSheet, SafeAreaView, Switch } from "react-native";
-import {
-  heightPercentageToDP as hp,
-  widthPercentageToDP as wp,
-} from "react-native-responsive-screen";
+import React, {useState, useContext} from 'react';
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 //custom components
-import FormButton from "../components/FormButton";
-import { AuthContext } from "../navigation/AuthProvider";
+import FormButton from '../components/FormButton';
+import { AuthContext } from '../navigation/AuthProvider';
 
 // button componentes
-import Report from "../components/Report";
-import ReportNegative from "../components/ReportNegative";
-import ReportPositive from "../components/ReportPositive";
-import ReportSymptoms from "../components/ReportSymptoms";
+import Report from '../components/Report';
+import ReportNegative from '../components/ReportNegative'
+import ReportPositive from '../components/ReportPositive'
+import ReportSymptoms from '../components/ReportSymptoms'
+import ReportCancel from '../components/ReportCancel'
+import GetContacts from '../components/GetContacts'
 
 // bottom sheet libraries
 //    used for animations but not used at the moment
-import BottomSheet from "reanimated-bottom-sheet";
-import SlidingUpPanel from "rn-sliding-up-panel";
-import { WebView } from "react-native-webview";
-import SettingsButton from "../components/SettingsButton";
-//import { Switch } from "react-native-gesture-handler";
+import Animated from 'react-native-reanimated'; 
+import BottomSheet from 'reanimated-bottom-sheet';
 
-let iStatus = ""; // must have variable globally(only works for fucntional component) if wished to use to store return values from firebase
 
-const HomeScreen = ({ navigation }) => {
-  const {
-    logout,
-    setUserInfectionStatus,
-    isEnabled,
-    toggleSwitch,
-  } = useContext(AuthContext);
+const HomeScreen = ({navigation}) =>{
+  const {user, logout, setUserInfectionStatus, getUserInfectionStatus, getUserContacts} = useContext(AuthContext);
   const sheetRef = React.useRef(null);
-
-  //force rerender
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
-
-  // set up to hide settings button
-  // const [shouldShow, setShouldShow] = useState(true);
-
-  // set up to get state of switch
-  //const [isEnabled, setIsEnabled] = useState(false);
-  //const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
-
-  const clickHandler = (s) => {
-    setCount(s);
-  };
-
-  const [firstRender, setFirstRender] = useState(false);
-  let re = false;
-  // //same as component did mount
-  // useEffect(() => {
-  //   setFirstRender(true);
-  // }, []);
 
   // set up render content for bottom sheet
   const renderContent = () => (
-    <View
-      style={{
-        backgroundColor: "#DEDEDE",
-        paddingLeft: 50,
-        paddingRight: 50,
-        paddingTop: 20,
-        height: 450,
-        alignItems: "center",
-      }}
-    >
-      {/* bottom sheet content */}
-      <ReportNegative
-        buttonTitle="Negative/No Symptoms"
-        onPress={() => {
-          sheetRef.current.snapTo(0);
-          //clickHandler("Negative");
-          return setUserInfectionStatus("N");
+      <View
+        style={{
+          backgroundColor: '#DEDEDE',
+          paddingLeft: 50,
+          paddingRight: 50,
+          height: 450,
+          alignItems: "center"
         }}
-      />
+      >
+        {/* bottom sheet content */}
+        <Text style = {styles.grabber} > &#10134; </Text>
+    
+        <ReportNegative
+          buttonTitle='Negative'
+          onPress={() =>{sheetRef.current.snapTo(0);  return setUserInfectionStatus('N')}} />
+    
+        <ReportSymptoms
+          buttonTitle='Symptoms'
+          onPress={() =>{sheetRef.current.snapTo(0);  return setUserInfectionStatus('M')}} />
+    
+        <ReportPositive
+          buttonTitle='Positive'
+          onPress={() =>{sheetRef.current.snapTo(0); return setUserInfectionStatus('P');}} />
 
-      <ReportSymptoms
-        buttonTitle="Symptoms"
-        onPress={() => {
-          sheetRef.current.snapTo(0);
-          //clickHandler("Symptomatic");
-          return setUserInfectionStatus("M");
-        }}
-      />
+        <ReportCancel
+                  buttonTitle='cancel'
+                  onPress={() =>{sheetRef.current.snapTo(0);}} />
+      </View>
+    );
 
-      <ReportPositive
-        buttonTitle="Positive"
-        onPress={() => {
-          sheetRef.current.snapTo(0);
-          //clickHandler("Positive");
-          return setUserInfectionStatus("P");
-        }}
-      />
-      <Text style={styles.reportFooter}>
-        Reporting is not necesary but does help the contact tracing accuracy
-      </Text>
-    </View>
-  );
-  return (
-    <View style={styles.container} backgroundColor={"white"}>
-      <SafeAreaView style={styles.webView2}>
-        <WebView
-          source={{ uri: "https://www.cdc.gov/coronavirus/2019-ncov" }}
-        />
-      </SafeAreaView>
-
-      {/* <View style={styles.settingsButton}>
-        <SettingsButton
-          buttonTitle="Settings"
-          onPress={() => {
-            if (!firstRender) {
-              setFirstRender(true);
-              return;
-            }
-            try {
-              this._panel.show();
-            } catch (e) {
-              console.log(e);
-            }
-
-            // setShouldShow(!shouldShow);
-          }}
-        />
-      </View> */}
-
-      {firstRender && (
-        <SlidingUpPanel
-          ref={(c) => (this._panel = c)}
-          allowDragging={true}
-          backdropStyle={styles.backdropStyle}
-          friction={0}
-          onBottomReached={() => {
-            // setShouldShow(!shouldShow);
-            sheetRef.current.snapTo(0);
-          }}
-        >
-          <View
-            style={styles.container}
-            onStartShouldSetResponder={() => this._panel.hide()}
-          >
-            <View style={styles.toggleLocationView}>
-              <Text style={styles.toggleLocationText}>Location Tracking</Text>
-              <Switch
-                style={styles.toggleLocationSwitch}
-                trackColor={{ false: "#767577", true: "#a6e4d0" }}
-                thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                onValueChange={toggleSwitch}
-                value={isEnabled}
-              />
-            </View>
-            <View style={styles.buttons}>
-              <Report
-                buttonTitle="Report"
-                // on press snap to position in snapPoins list
-                onPress={() => sheetRef.current.snapTo(1)}
-              />
-
-              <FormButton
-                buttonTitle="Logout"
-                onPress={() => {
-                  return logout();
-                }}
-              />
-            </View>
+    // had to move id and infenction status to make room for buttons
+    return (
+        <View style={styles.container}>
+          <View style={styles.bottomView}>
+            <Text>{user.uid}</Text>
+            <Text>{'Infection Status: ' + getUserInfectionStatus()}</Text>
           </View>
-        </SlidingUpPanel>
-      )}
+          <View style={styles.positiveContacts}>
+            <Text>{'Positive Contacts: ' + getUserContacts()}</Text>
+          </View>
 
-      <BottomSheet
-        ref={sheetRef}
-        snapPoints={[0, 500]}
-        borderRadius={30}
-        renderContent={renderContent}
-      />
-    </View>
-  );
+          <View style={styles.buttons}> 
+            {/* <GetContacts
+            buttonTitle = 'Get Positive Contacts'
+            onPress = {() => {}}/> */}
+
+            <Report
+              buttonTitle = 'Report'
+              // on press snap to position in snapPoins list 
+              onPress = {() => sheetRef.current.snapTo(1)} />
+
+            <FormButton 
+              buttonTitle='Logout'
+              onPress={() => {return logout()}} />
+            </View>
+
+          {/* initialize bottom sheet */}
+          <BottomSheet
+            ref={sheetRef}
+            snapPoints={[0, 470]}
+            borderRadius={10}
+            renderContent={renderContent} />
+        </View>
+    );
 };
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: 'white',
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 35,
-    marginBottom: 5,
-    color: "white",
-    fontFamily: "Iowan Old Style",
-    marginTop: 0,
-  },
-  buttons: {
-    width: "90%",
-    position: "absolute",
-    bottom: 15,
-  },
-  webView2: {
-    top: 160,
-    width: wp("100%"),
-    flex: 1,
-    margin: -160,
-    resizeMode: "contain",
-  },
-  toggleLocationView: {
-    marginLeft: "-80%",
-    bottom: 250,
-  },
-  toggleLocationText: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 25,
-    position: "absolute",
-    marginLeft: "45%",
-  },
-  toggleLocationSwitch: {
-    marginLeft: "80%",
-  },
-  settingsButton: {
-    paddingBottom: 20,
-    width: "50%",
-  },
-  reportFooter: {
-    paddingTop: 10,
-    fontFamily: "Helvetica Neue",
-    textAlign: "center",
-    color: "grey",
-  },
-  backdropStyle: {
-    // backgroundColor: "orange",
-  },
-});
+    container: {
+      backgroundColor: '#f9fafd',
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingTop: 20,
+    },
+    logo: {
+      height: 150,
+      width: 150,
+      resizeMode: 'cover',
+    },
+    text: {
+      fontSize: 28,
+      marginBottom: 10,
+      color: '#051d5f',
+      marginVertical: 35
+    },
+    navButton: {
+      marginTop: 15,
+    },
+    forgotButton: {
+      marginVertical: 35,
+    },
+    navButtonText: {
+      fontSize: 18,
+      fontWeight: '500',
+      color: '#2e64e5'
+    },
+    bottomView: {
+      width: '100%',
+      height: 50,
+      backgroundColor: '#EE5407',
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'absolute',
+      top: 60
+
+    },
+    grabber:{
+      fontSize: 30
+    },
+    buttons:{
+      width: '100%',
+      bottom: -250
+    },
+    positiveContacts:{
+      backgroundColor : 'yellow',
+      top: -140,
+      width: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 50
+    }
+  });
+  

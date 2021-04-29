@@ -7,7 +7,7 @@ import { AuthContext } from '../navigation/AuthProvider';
 
 //'https://coronavirus.jhu.edu/us-map'
 const ResourceScreen = ({navigation}) =>{
-    const {user, logout, getUserInfectionStatus} = useContext(AuthContext);
+    const {user, logout} = useContext(AuthContext);
     return (
         <View style={styles.container}>
             <SafeAreaView style={styles.descriptionContainerVer}>
@@ -15,7 +15,7 @@ const ResourceScreen = ({navigation}) =>{
                     source={{ uri: 'https://www.cdc.gov/coronavirus/2019-ncov' }}
                 />
                 <View style={styles.bottomView}>
-                    <Text>{getUserInfectionStatus()}</Text>
+                    <Text>{user.uid}</Text>
                 </View>
             </SafeAreaView>
 
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
           flex:1,
       flexDirection:'column',
           justifyContent: 'flex-start',
-        //   backgroundColor: 'grey'
+          backgroundColor: 'grey'
       },
       descriptionContainerVer:{
       flex:9, //height (according to its parent)
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
       flex:1, //height (according to its parent)
       flexDirection: 'column', //its children will be in a row
       alignItems: 'center',
-    //   backgroundColor: 'gray',
+      backgroundColor: 'gray',
       // alignSelf: 'center',
     },
     descriptionContainerHor:{

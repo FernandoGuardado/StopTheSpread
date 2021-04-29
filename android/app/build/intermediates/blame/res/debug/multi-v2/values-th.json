@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Starfall\\.gradle\\caches\\transforms-2\\files-2.1\\f354410efc6d31bf6f176e41e7798cf0\\core-1.2.0\\res\\values-th\\values-th.xml",
+                    "source": "C:\\Users\\Starfall\\.gradle\\caches\\transforms-2\\files-2.1\\9a4658afade2e57b9a640b6674c28496\\core-1.1.0\\res\\values-th\\values-th.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Starfall\\.gradle\\caches\\transforms-2\\files-2.1\\e92562c21dcb56cdd433f044841ee6ea\\play-services-base-17.5.0\\res\\values-th\\values.xml",
+                    "source": "C:\\Users\\Starfall\\.gradle\\caches\\transforms-2\\files-2.1\\c4fb6b3249f446fdb0995f0c1cd7339f\\play-services-base-17.1.0\\res\\values-th\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Starfall\\.gradle\\caches\\transforms-2\\files-2.1\\63316a6f71f13ec76ff34ced74ce8e36\\jetified-play-services-basement-17.5.0\\res\\values-th\\values.xml",
+                    "source": "C:\\Users\\Starfall\\.gradle\\caches\\transforms-2\\files-2.1\\9557a9e67569bcac9a8860793c8b2a3e\\jetified-play-services-basement-17.1.1\\res\\values-th\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
