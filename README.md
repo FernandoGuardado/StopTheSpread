@@ -43,5 +43,7 @@ yarn ios // npm run ios
 
 # StopTheSpread Mobile App
 
-To view the server app please visit: https://github.com/FernandoGuardado/Stop-the-Spread-Admin
+To view the web app please visit: https://github.com/FernandoGuardado/Stop-the-Spread-Admin
+
+> > > > > > > c71f6d06c1d3011c121cb4923a0fd1f5e44abfa9
 
