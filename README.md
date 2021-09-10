@@ -43,7 +43,4 @@ yarn ios // npm run ios
 
 # StopTheSpread Mobile App
 
-To view the server please visit: https://github.com/ContactTracingCU/Stop-the-Spread-Server
-
-> > > > > > > c71f6d06c1d3011c121cb4923a0fd1f5e44abfa9
-
+To view the server please visit: https://github.com/FernandoGuardado/StopTheSpreadServer
